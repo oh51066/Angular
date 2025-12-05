@@ -1,0 +1,10 @@
+<button (click)="generate()">
+  Losuj liczbę od 1 do {{ max }}
+</button>
+
+<div *ngIf="current">
+  <p>Wylosowana liczba: {{ current }}</p>
+  <p [ngClass]="{ ok: isLow, bad: !isLow }">
+    {{ comment }}
+  </p>
+</div>
