@@ -1,0 +1,16 @@
+<form (ngSubmit)="add()">
+  <input
+    type="text"
+    [(ngModel)]="newItem"
+    name="item"
+    placeholder="Wpisz tekst"
+  />
+  <button type="submit">Dodaj</button>
+</form>
+
+<ul>
+  <li *ngFor="let item of items; let i = index">
+    {{ item }}
+    <a href="#" (click)="remove(i); $event.preventDefault()">usuń</a>
+  </li>
+</ul>
