@@ -1,9 +1,0 @@
-.delete-link {
-  color: blue;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.delete-link:hover {
-  opacity: 0.7;
-}
