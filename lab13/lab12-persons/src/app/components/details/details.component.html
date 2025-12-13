@@ -1,0 +1,19 @@
+<h2>Szczegóły osoby</h2>
+
+<div *ngIf="person; else noPerson">
+  <p><strong>Imię:</strong> {{ person.firstName }}</p>
+  <p><strong>Nazwisko:</strong> {{ person.familyName }}</p>
+  <p><strong>Wiek:</strong> {{ person.age || 'brak' }}</p>
+
+  <h3>Adres</h3>
+  <p><strong>Miasto:</strong> {{ person.address?.city || 'brak' }}</p>
+  <p><strong>Ulica:</strong> {{ person.address?.street || 'brak' }}</p>
+  <p><strong>Kod pocztowy:</strong> {{ person.address?.postCode || 'brak' }}</p>
+
+  <button routerLink="/">Powrót do listy</button>
+</div>
+
+<ng-template #noPerson>
+  <p>Nie znaleziono osoby.</p>
+  <button routerLink="/">Powrót do listy</button>
+</ng-template>
