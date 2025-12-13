@@ -1,0 +1,21 @@
+<h2>Lista osób</h2>
+
+<button routerLink="/add">Dodaj nową osobę</button>
+
+<div *ngIf="persons.length === 0">
+  <p>Brak zapisanych osób. Dodaj nowy wpis.</p>
+</div>
+
+<ul *ngIf="persons.length > 0">
+  @for (p of persons; track p._links.self.href) {
+    <li>
+      <strong>{{ p.firstName }} {{ p.familyName }}</strong>,
+      wiek: {{ p.age || 'brak' }},
+      miasto: {{ p.address?.city || 'brak' }}
+      |
+      <a [routerLink]="['/details', service.extractId(p)]">Szczegóły</a>
+      |
+      <a (click)="delete(p)" class="delete-link">Usuń</a>
+    </li>
+  }
+</ul>
